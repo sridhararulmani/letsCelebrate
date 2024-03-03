@@ -1,0 +1,233 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+}
+html {
+  height: -webkit-fill-available;
+}
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  height: -webkit-fill-available;
+}
+body .bubble{
+  position: absolute;
+  width: 50px;
+  bottom: 165px;
+  transition-duration: 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bubble.active{
+  transition-duration: 0.6s;
+  transform: translateY(-90px);
+  width: 400px;
+}
+.bubble svg{
+  position: relative;
+}
+.bubble button{
+  position: absolute;
+  font-size: 1px;
+  transition: 0.5s;
+  border: none;
+  border-radius: 20px;
+  padding: 15px;
+  background-image: linear-gradient(45deg, #d2001a, #7462ff, #21f46e, #23d5ab);
+  background-size: 300% 300%;
+  animation: color 25s ease-in-out infinite;
+  color: white;
+  animation: Vaibration 4s ease infinite;
+}
+button.active{
+  font-size: 20px;
+  transition: 3s;
+}
+body .giftContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 20%;
+}
+.giftContainer.active {
+  animation: Vaibration 4s ease infinite;
+}
+@keyframes Vaibration {
+  0% {
+    transform: scale(1, 1);
+  }
+  25% {
+    transform: scale(0.95, 1.05);
+  }
+  50% {
+    transform: scale(1, 1);
+  }
+  75% {
+    transform: scale(0.95, 1.05);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+.giftContainer .giftBox {
+  position: absolute;
+  height: 150px;
+  width: 250px;
+  background-image: linear-gradient(45deg, #d2001a, #7462ff, #21f46e, #23d5ab);
+  background-size: 300% 300%;
+  animation: color 25s ease-in-out infinite;
+  border-radius: 0px 0px 10px 10px;
+  animation: bounce 4s ease infinite;
+  box-shadow: 0px 1px 5px 0px black;
+}
+@keyframes bounce {
+  0% {
+    transform: translateY(-40px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-40px);
+  }
+}
+.giftBox::before {
+  content: "";
+  position: absolute;
+  height: 150px;
+  width: 50px;
+  background-color: #d2001a;
+  left: 100px;
+  box-shadow: 0px 0px 10px 1px black;
+}
+.giftBox .click {
+  position: absolute;
+  height: 50px;
+  width: 255px;
+  background-image: linear-gradient(45deg, #d2001a, #7462ff, #21f46e, #23d5ab);
+  background-size: 300% 300%;
+  animation: color 25s ease-in-out infinite;
+  border-radius: 10px 10px 0px 0px;
+  left: -2.5px;
+  top: -50px;
+  box-shadow: 0px 1px 5px 0px black;
+  transition: 0.5s ease;
+}
+@keyframes -color {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+.click.active {
+  transform: rotate(-130deg) translateY(-165px);
+  top: -205px;
+  left: -105px;
+}
+.giftContainer .shadow.active {
+  animation: none;
+}
+.click::before {
+  content: "";
+  position: absolute;
+  height: 50px;
+  width: 51px;
+  background-color: #d2001a;
+  left: 102px;
+  box-shadow: 0px 0px 10px 1px black;
+}
+.click::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-bottom: 60px solid #d2001a;
+  border-left: 0px solid transparent;
+  border-top: 60px solid #d2001a;
+  border-right: 60px solid transparent;
+  transform: rotate(-90deg);
+  top: -88px;
+  left: 98px;
+  border-radius: 10px 50px 50px 10px;
+  z-index: 3;
+}
+.giftContainer .shadow {
+  content: "";
+  position: absolute;
+  width: 270px;
+  height: 20px;
+  background-color: rgba(0, 0, 0, 0.4);
+  top: 65px;
+  left: -135px;
+  border-radius: 100%;
+  animation: bounceOut 4s ease infinite;
+}
+@keyframes bounceOut {
+  0% {
+    transform: translateY(-10px);
+    scale: 0.7;
+  }
+  50% {
+    transform: translateY(0px);
+    scale: 1;
+  }
+  100% {
+    transform: translateY(-10px);
+    scale: 0.7;
+  }
+}
+@media (max-width: 600px) {
+  .giftContainer .giftBox {
+    height: 75px;
+    width: 150px;
+  }
+  .giftBox::before {
+    width: 20px;
+    height: 75px;
+    left: 67px;
+  }
+  .giftContainer .click {
+    height: 30px;
+    width: 156px;
+    margin-top: 19px;
+  }
+  .click::before {
+    width: 20px;
+    height: 30px;
+    left: 70px;
+  }
+  .click::after {
+    left: 59px;
+    top: -60px;
+    border-bottom: 40px solid #d2001a;
+    border-left: 0px solid transparent;
+    border-top: 40px solid #d2001a;
+    border-right: 40px solid transparent;
+  }
+  .click.active {
+    top: -170px;
+    left: -35px;
+    transform: rotate(-130deg) translateY(-140px);
+  }
+  .giftContainer .shadow {
+    width: 200px;
+    height: 10px;
+    margin-left: 35px;
+  }
+  .bubble.active{
+    transform: translateY(-150px);
+  }
+}
